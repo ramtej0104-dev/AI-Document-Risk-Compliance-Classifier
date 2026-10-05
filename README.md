@@ -1,4 +1,4 @@
-# AI Document Risk & Compliance Classifier
+# *AI Document Risk & Compliance Classifier*
 
 An AI system that reads a legal/contract document, classifies it into a risk or compliance category, explains *why* it made that decision, and flags documents it isn't confident about for manual human review.
 
@@ -17,18 +17,18 @@ In real compliance and legal workflows, blindly trusting an AI's classification 
 
 ## Project structure
 
-| File | What it does |
-|---|---|
-| `download_data.py` | Downloads the LEDGAR legal-document dataset from Hugging Face |
-| `clean_data.py` | Filters the dataset down to 6 target categories and cleans the text |
-| `train_model.py` | Trains a TF-IDF + Logistic Regression classifier and evaluates it |
-| `save_model.py` | Retrains on the full cleaned dataset and saves the final model files |
-| `explain.py` | Explains a prediction by showing which words influenced it |
-| `predict.py` | Combines prediction + confidence check + explanation + logging into one function |
-| `app.py` | Streamlit dashboard — upload a document, see its classification, explanation, and the flagged-documents log |
-| `documents_clean.csv` | The cleaned dataset used for training |
-| `vectorizer.joblib` / `model.joblib` | The saved, trained model files |
-| `flagged_documents.csv` | Auto-generated log of low-confidence documents that needed manual review |
+- | File | What it does |
+- |---|---|
+- | `download_data.py` | Downloads the LEDGAR legal-document dataset from Hugging Face |
+- | `clean_data.py` | Filters the dataset down to 6 target categories and cleans the text |
+- | `train_model.py` | Trains a TF-IDF + Logistic Regression classifier and evaluates it |
+- | `save_model.py` | Retrains on the full cleaned dataset and saves the final model files |
+- | `explain.py` | Explains a prediction by showing which words influenced it |
+- | `predict.py` | Combines prediction + confidence check + explanation + logging into one function |
+- | `app.py` | Streamlit dashboard — upload a document, see its classification, explanation, and the flagged-documents log |
+- | `documents_clean.csv` | The cleaned dataset used for training |
+- | `vectorizer.joblib` / `model.joblib` | The saved, trained model files |
+- | `flagged_documents.csv` | Auto-generated log of low-confidence documents that needed manual review |
 
 ## How to run it
 
@@ -87,4 +87,5 @@ This happened because Hugging Face changed its rules — dataset names now need 
 - Try a transformer-based model (like BERT) for potentially higher accuracy on harder, more ambiguous clauses.
 - Let reviewers submit corrections for flagged documents, and use that feedback to retrain and improve the model over time.
 
-## What I Learnt and the Challenges
+## *What I Learnt and the Challenges*
+Firstly, I installed pandas scikit-learn , matplotlib joblib and created download_data.py with the help of my AI assistant. We extracted the data from the dataset. There was code missing in that file ,so we wrote a one line code to loaded dataset from ledger. We got 60000 downloaded documents ,we divided that into 6 categories and wrote 'clean_data' to clean that raw data that we extracted. After cleaning the data by categorizing them , we added TF-IDF to extract unique word from the cleaned file. By using the unique words we wrote 'train_model' to train the model using TF-IDF. Because the dataset was perfect dataset for training a model I didn't got any error so far. I saved the model which has been trained by the unique word. In the next step we wrote 'explain.py' to show "why & which word influenced "  whenever the AI model predicts or decision. I with the help of my AI assistant developed 'predict.py' code to show how confident is the AI model sure about it's prediction/decision. At the end we developed 'app.py' to open the model in the web page and run the output. This project was easy because I worked on AI-support-ticket-triage and was similar to that project so, that was the reason why I had minimal error while execution of this project
